@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background: url("../assets/intro.png") center no-repeat;
+            background-size: cover;
+            text-align: center;
+
+        }
+        .empty {
+            height: 200px;
+        }
+        h2 {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+            margin: 10px 0;
+            font-size: 45px;
+        }
+        h4 {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: lighter;
+            color: white;
+            margin: 5px 0;
+            font-size: 20px;
+        }
+        form {
+            margin: 20px 480px;
+        }
+        button {
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="empty"></div>
+    <div>
+        <h2>Scraping data from a site</h2>
+        <h4>Paste your domain:</h4>
+        <form action="/scrape" method="get">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">http:</span>
+                <input required type="text" class="form-control" placeholder="Ex: github.com">
+                <button class="btn btn-outline-light" type="button" id="button-addon2">Search</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
