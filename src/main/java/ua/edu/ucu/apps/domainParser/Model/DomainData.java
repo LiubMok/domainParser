@@ -27,4 +27,9 @@ public class DomainData {
     private String employees;
     private String address;
 
+    public boolean isFull(){
+//        TODO add itaration through the atributes to finout whether all of them are filled
+        return false;
+    }
+
 }

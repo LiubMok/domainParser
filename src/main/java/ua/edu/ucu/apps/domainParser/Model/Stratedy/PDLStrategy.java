@@ -6,7 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 import ua.edu.ucu.apps.domainParser.Model.DomainData;
 
-public class PDLStrategy implements IStrategy{
+public class PDLStrategy extends BaseStrategy{
 
     private final String PDL_URL = "https://api.peopledatalabs.com/v5/company/search";
     private final String KEY_HEADER_NAME = "X-API-Key";
