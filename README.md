@@ -27,7 +27,13 @@ First, we start PDL Strategy. If it finds all the required data - perfect. Else,
 
 # Interaction
 
+Check out our app: tyt mae bytu link
+
 ![markiyan](https://user-images.githubusercontent.com/65810146/205348629-a9f45f00-4e9d-416f-97fc-3bd3b0a2af74.jpg)
 
 # UML Diagrams
+
+posilanya na case diagram
+
+posilanya na uml diagrams
 
