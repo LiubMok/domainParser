@@ -23,7 +23,6 @@ public class PDLStrategy extends BaseStrategy{
     @SneakyThrows
     public DomainData parseInputDomain(DomainData domain, String link) {
         String query = URLEncoder.encode(String.format("SELECT NAME FROM COMPANY WHERE WEBSITE='%s'", link), StandardCharsets.UTF_8);
-        System.out.println(query);
         URL url = new URL("https://api.peopledatalabs.com/v5/company/search?sql=" + query);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -36,15 +35,19 @@ public class PDLStrategy extends BaseStrategy{
 //        System.out.println(jsonObject.getJSONArray("data").getJSONObject(0).getInt("employee_count"));
         if (domain.getName() == null) {
             domain.setName(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getString("name")));
+            System.out.println(true);
         }
         if(domain.getTwitter() == null){
             domain.setTwitter(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getString("twitter_url")));
+            System.out.println(true);
         }
         if(domain.getFacebook() == null){
             domain.setFacebook(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getString("facebook_url")));
+            System.out.println(true);
         }
         if(domain.getEmployees() == null){
             domain.setEmployees(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getInt("employee_count")));
+            System.out.println(true);
         }
 //        if(domain.getAddress() == null){
 //            domain.setAddress(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getString("name")));
