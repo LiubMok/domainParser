@@ -1,23 +1,29 @@
 package ua.edu.ucu.apps.domainParser.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import ua.edu.ucu.apps.domainParser.Model.DomainData;
+import ua.edu.ucu.apps.domainParser.Classes.DomainData;
 import ua.edu.ucu.apps.domainParser.Repository.DataFinderRepository;
 
-@Service
+import java.util.List;
+
+@Component
 public class DataService {
-    DataFinderRepository dataBase;
+    private final DataFinderRepository dataBase;
     @Autowired
-    public  DataService(DataFinderRepository database){
+    public DataService(DataFinderRepository database){
         this.dataBase = database;
     }
-    public DomainData findOneByName(String inputDomain) {
-//        TODO find an domain using domain string
-        return new DomainData();
+    public DomainData findOneByDomain(String inputDomain) {
+        return dataBase.getDomainDataByDomain(inputDomain);
+    }
+    public List<DomainData> getAllDomains(){
+        List<DomainData> all = dataBase.findAll();
+        return all;
     }
 
     public void save(DomainData domain) {
-//TODO add domain to database
+        dataBase.save(domain);
     }
 }

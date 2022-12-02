@@ -1,41 +1,60 @@
 package ua.edu.ucu.apps.domainParser.Controllers;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ua.edu.ucu.apps.domainParser.Classes.DomainInput;
 import ua.edu.ucu.apps.domainParser.Classes.SearchEngine;
-import ua.edu.ucu.apps.domainParser.Model.DomainData;
+import ua.edu.ucu.apps.domainParser.Classes.DomainData;
 import ua.edu.ucu.apps.domainParser.Services.DataService;
 
+import java.util.List;
+
 @RestController
+@RequestMapping(path = "/domainParser")
 public class DataController {
-    private final DataService dataBase;
+    private final DataService dataService;
     private final SearchEngine searchEngine;
 
-    @Autowired
-    public DataController(DataService database, SearchEngine searchEngine) {
-        this.dataBase = database;
+
+    public DataController(@Autowired DataService database, @Autowired SearchEngine searchEngine) {
+        this.dataService = database;
         this.searchEngine = searchEngine;
     }
 
-    @GetMapping
-    public DomainData getRequest(String inputDomain) {
-        DomainData domain = dataBase.findOneByName(inputDomain);
+    @PostMapping(path = "/requestInfo")
+    public DomainData getRequest(@RequestBody DomainInput  inputDomain) {
+        Logger logger = LoggerFactory.getLogger(DataController.class);
+        DomainData domain = dataService.findOneByDomain(inputDomain.getName());
         if (domain != null){
             return domain;
         }
 
-        ;
-        domain = searchEngine.searchInfoAboutCompany(inputDomain);
-        addDomainData(domain);
+        domain = searchEngine.searchInfoAboutCompany(inputDomain.getName());
+        domain.changeNull();
+        dataService.save(domain);
         return domain;
     }
 
-    @PostMapping
-    public void addDomainData(@RequestBody DomainData domain){
-        dataBase.save(domain);
+    @PostMapping(path = "/edit")
+    public void editDomainData(@RequestBody DomainData domain){
+        if(dataService.findOneByDomain(domain.getDomain()).getDomain().equals(domain.getName())){
+            System.out.println("Hello world");
+        }
+        else {
+            dataService.save(domain);
+        }
     }
+
+    @GetMapping(path = "/all")
+    public List<DomainData> getData() {
+        List<DomainData> allDomains = dataService.getAllDomains();
+        return allDomains;
+    }
+
+    @GetMapping(path = "/hello")
+    public String getHello(){return "Hello bitch"; }
+
 }

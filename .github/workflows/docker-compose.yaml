@@ -9,3 +9,6 @@ services:
       - POSTGRES_PASSWORD=12344321
       - POSTGRES_USER=admin
     image: postgres:latest
+
+#зайти в domainParser/.github/workflows
+#  docker-compose up --build
