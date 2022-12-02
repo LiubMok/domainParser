@@ -33,7 +33,7 @@ Check out our app: tyt mae bytu link
 
 # UML Diagrams
 
-posilanya na case diagram
+UML Diagrams: https://app.diagrams.net/#G1q9-UnPABdGsBpMu9PRTY6udUUAMGE--d
 
 posilanya na uml diagrams
 
