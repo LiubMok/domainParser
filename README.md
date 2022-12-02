@@ -24,3 +24,10 @@ After that, we initialize object of <b>DomainData</b> class with lombok's @NoArg
 * GooglePlace Strategy
 
 First, we start PDL Strategy. If it finds all the required data - perfect. Else, it continues the process, going straight to the Regex Strategy and Brandfetch Strategy. If we still did not found the address, the GooglePlace Strategy comes in handy. All in all, it looks like this: PDL -> Regex -> Brandfetch -> GooglePlace. Each linked handler has a field for storing a reference to the next handler in the chain with the help of next field. Handlers pass the request down our strategy chain. The request travels along the chain and at the end of each iteration a handler can decide not to pass the request if all data fields are filled out. Unfortunately, if some kind of information does not exist, the program fills out the value of a field as "No information about this field".
+
+# Interaction
+
+![markiyan](https://user-images.githubusercontent.com/65810146/205348629-a9f45f00-4e9d-416f-97fc-3bd3b0a2af74.jpg)
+
+# UML Diagrams
+
