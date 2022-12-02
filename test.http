@@ -21,7 +21,7 @@ POST http://localhost:8080/domainParser/requestInfo
 Content-Type: application/json
 
 {
-  "name": "nike.com"
+  "name": "glovoapp.com"
 }
 ###
 POST http://localhost:8080//domainParser/requestInfo

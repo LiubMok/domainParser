@@ -11,16 +11,18 @@ import java.util.List;
 @Component
 public class DataService {
     private final DataFinderRepository dataBase;
+
     @Autowired
-    public DataService(DataFinderRepository database){
+    public DataService(DataFinderRepository database) {
         this.dataBase = database;
     }
+
     public DomainData findOneByDomain(String inputDomain) {
         return dataBase.getDomainDataByDomain(inputDomain);
     }
-    public List<DomainData> getAllDomains(){
-        List<DomainData> all = dataBase.findAll();
-        return all;
+
+    public List<DomainData> getAllDomains() {
+        return dataBase.findAll();
     }
 
     public void save(DomainData domain) {

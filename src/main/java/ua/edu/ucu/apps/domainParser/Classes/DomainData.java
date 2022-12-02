@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +17,6 @@ public class DomainData {
     @Id
     @GeneratedValue
     private int id;
-//    @Column(name = "domain")
     private String domain;
     private String name;
     private String twitter;
@@ -30,29 +28,50 @@ public class DomainData {
 
     @SneakyThrows
     public boolean isFull() {
-        List<String> properties = List.of(
-//                Arrays.asList(
-                this.name,
-                this.twitter,
-                this.logo,
-                this.icon,
-                this.employees,
-                this.address);
-
-//        return !properties.stream()
-//                .anyMatch(s -> (s == null || s.trim().isEmpty()));
-        return properties.stream()
-                .noneMatch(s -> (s == null || s.trim().isEmpty()));
+        if (this.getName() == null) {
+            return false;
+        }
+        if (this.getTwitter() == null) {
+            return false;
+        }
+        if (this.getFacebook() == null) {
+            return false;
+        }
+        if (this.getIcon() == null) {
+            return false;
+        }
+        if (this.getLogo() == null) {
+            return false;
+        }
+        if (this.getEmployees() == null) {
+            return false;
+        }
+        if (this.getAddress() == null) {
+            return false;
+        }
+        return true;
     }
 
-    public void changeNull(){
-        if(this.getIcon() == null){
+    public void changeNull() {
+        if (this.getName() == null) {
+            this.setName("No information about this field");
+        }
+        if (this.getTwitter() == null) {
+            this.setTwitter("No information about this field");
+        }
+        if (this.getFacebook() == null) {
+            this.setFacebook("No information about this field");
+        }
+        if (this.getIcon() == null) {
             this.setIcon("No information about this field");
         }
-        if(this.getLogo() == null){
+        if (this.getLogo() == null) {
             this.setLogo("No information about this field");
         }
-        if(this.getAddress() == null){
+        if (this.getEmployees() == null) {
+            this.setEmployees("No information about this field");
+        }
+        if (this.getAddress() == null) {
             this.setAddress("No information about this field");
         }
     }
