@@ -1,0 +1,16 @@
+GET http://localhost:8080/domainParser/all
+
+###
+POST http://localhost:8080/domainParser/requestInfo
+Content-Type: application/json
+
+{
+  "name": "github.com"
+}
+###
+POST http://localhost:8080//domainParser/requestInfo
+Content-Type: application/json
+
+{
+"name": "ucu.edu.ua"
+}
