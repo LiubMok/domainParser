@@ -1,27 +1,11 @@
 GET http://localhost:8080/domainParser/all
-###
-GET http://localhost:8080/domainParser/hello
 
-###
-POST http://localhost:8080/domainParser/edit
-Content-Type: application/json
-
-{
-  "domain": "ucu.edu.ua",
-  "name": "Ukrainian Catholic University",
-  "twitter": "https://twitter.com/ucu_university",
-  "facebook": "https://www.facebook.com/UkrainianCatholicUniversity",
-  "logo": "https://mywebsite.com/logo.png",
-  "icon": "https://mywebsite.com/icon.png",
-  "employees": "501-1000",
-  "address": "17 Sventsitskoho street, Lviv, Ukraine"
-}
 ###
 POST http://localhost:8080/domainParser/requestInfo
 Content-Type: application/json
 
 {
-  "name": "glovoapp.com"
+  "name": "github.com"
 }
 ###
 POST http://localhost:8080//domainParser/requestInfo

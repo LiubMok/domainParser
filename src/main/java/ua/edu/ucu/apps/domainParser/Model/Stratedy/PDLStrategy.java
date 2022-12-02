@@ -43,27 +43,36 @@ public class PDLStrategy extends BaseStrategy {
         jsonObject = new JSONObject(text);
         if (domain.getName() == null) {
             domain.setName(getNameToDomain());
-            System.out.println(true);
         }
         if (domain.getTwitter() == null) {
             domain.setTwitter(getTwitterToDomain());
-            System.out.println(true);
         }
         if (domain.getFacebook() == null) {
             domain.setFacebook(getFacebookToDomain());
-            System.out.println(true);
         }
         if (domain.getEmployees() == null) {
             domain.setEmployees(getEmployeesNumberToDomain());
-            System.out.println(true);
         }
-//        if(domain.getAddress() == null){
-//            domain.setAddress(String.valueOf(jsonObject.getJSONArray("data").getJSONObject(0).getString("name")));
-//        }
+        if(domain.getAddress() == null){
+            domain.setAddress(getAddressToDomain());
+        }
+
         if (domain.isFull() || getNext() == null) {
             return domain;
         } else {
             return getNext().parseInputDomain(domain, link);
+        }
+    }
+
+    private String getAddressToDomain() {
+        String result = "";
+        try {
+            result += jsonObject.getJSONArray("data").getJSONObject(0).getJSONObject("location").getString("continent");
+            result += ", " + jsonObject.getJSONArray("data").getJSONObject(0).getJSONObject("location").getString("country") ;
+            result += ", " + jsonObject.getJSONArray("data").getJSONObject(0).getJSONObject("location").getString("street_address");
+            return result;
+        }catch (Exception e){
+            return result;
         }
     }
 
@@ -99,6 +108,5 @@ public class PDLStrategy extends BaseStrategy {
             return null;
         }
     }
-
 }
 

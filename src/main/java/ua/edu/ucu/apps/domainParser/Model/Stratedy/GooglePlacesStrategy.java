@@ -13,6 +13,7 @@ import ua.edu.ucu.apps.domainParser.Classes.DomainData;
 public class GooglePlacesStrategy extends BaseStrategy{
     @SneakyThrows
     public static void main(String[] args) {
+//        TODO api keys can not be used, why? how to deal error?
         String API_KEY = "AIzaSyAGehSSsIW2AC7n0t89BPEsoS727lf3Vpg";
         String query = "ucu.edu.ua";
         GeoApiContext context = new GeoApiContext.Builder()

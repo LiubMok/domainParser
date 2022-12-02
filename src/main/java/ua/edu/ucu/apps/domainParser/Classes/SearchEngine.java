@@ -13,15 +13,12 @@ public class SearchEngine {
         domainData.setDomain(inputDomain);
 
         BaseStrategy pdlStrategy= new PDLStrategy();
-        BaseStrategy regexStrategy = new RegexStrategy();
         BaseStrategy brandfetchStrategy = new BrandfetchStrategy();
         BaseStrategy googlePlacesStrategy = new GooglePlacesStrategy();
 
 //        googlePlacesStrategy.setNext(brandfetchStrategy);
         brandfetchStrategy.setNext(pdlStrategy);
-//        regexStrategy.setNext(pdlStrategy);
 
-//        googlePlacesStrategy.parseInputDomain(domainData, inputDomain);
         brandfetchStrategy.parseInputDomain(domainData, inputDomain);
         return domainData;
     }

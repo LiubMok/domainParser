@@ -25,38 +25,23 @@ public class DataController {
     }
 
     @PostMapping(path = "/requestInfo")
-    public DomainData getRequest(@RequestBody DomainInput  inputDomain) {
+    public DomainData getRequest(@RequestBody DomainInput inputDomain) {
         Logger logger = LoggerFactory.getLogger(DataController.class);
         DomainData domain = dataService.findOneByDomain(inputDomain.getName());
-        if (domain != null){
+        if (domain != null) {
             return domain;
         }
-        System.out.println(domain);
         domain = searchEngine.searchInfoAboutCompany(inputDomain.getName());
         domain.changeNull();
         dataService.save(domain);
         return domain;
     }
 
-    @PostMapping(path = "/edit")
-    public void editDomainData(@RequestBody DomainData domain){
-        if(dataService.findOneByDomain(domain.getDomain()).getDomain().equals(domain.getName())){
-            System.out.println("Hello world");
-        }
-        else {
-            dataService.save(domain);
-        }
-    }
-
     @GetMapping(path = "/all")
 //    @GetMapping
     public List<DomainData> getData() {
-        List<DomainData> allDomains = dataService.getAllDomains();
-        System.out.println(allDomains);
-        return allDomains;
+        return dataService.getAllDomains();
     }
 
-    @GetMapping(path = "/hello")
-    public String getHello(){return "Hello bitch"; }
 
 }
