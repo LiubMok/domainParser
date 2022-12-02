@@ -1,4 +1,6 @@
 GET http://localhost:8080/domainParser/all
+###
+GET http://localhost:8080/domainParser/hello
 
 ###
 POST http://localhost:8080/domainParser/edit
@@ -19,7 +21,7 @@ POST http://localhost:8080/domainParser/requestInfo
 Content-Type: application/json
 
 {
-  "name": "amazon.com"
+  "name": "youtube.com"
 }
 ###
 POST http://localhost:8080//domainParser/requestInfo

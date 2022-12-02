@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.persistence.*;
-import java.lang.reflect.Method;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,14 +30,19 @@ public class DomainData {
 
     @SneakyThrows
     public boolean isFull() {
-        Method[] allMethods = DomainData.class.getDeclaredMethods();
-        for (Method m : allMethods) {
-            System.out.println(m.getName());
-            if (m.invoke(this) == null || (boolean) m.invoke(this)) {
-                return false;
-            }
-        }
-        return true;
+        List<String> properties = List.of(
+//                Arrays.asList(
+                this.name,
+                this.twitter,
+                this.logo,
+                this.icon,
+                this.employees,
+                this.address);
+
+//        return !properties.stream()
+//                .anyMatch(s -> (s == null || s.trim().isEmpty()));
+        return properties.stream()
+                .noneMatch(s -> (s == null || s.trim().isEmpty()));
     }
 
     public void changeNull(){

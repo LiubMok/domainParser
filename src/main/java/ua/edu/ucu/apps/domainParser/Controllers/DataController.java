@@ -31,7 +31,7 @@ public class DataController {
         if (domain != null){
             return domain;
         }
-
+        System.out.println(domain);
         domain = searchEngine.searchInfoAboutCompany(inputDomain.getName());
         domain.changeNull();
         dataService.save(domain);
@@ -49,8 +49,10 @@ public class DataController {
     }
 
     @GetMapping(path = "/all")
+//    @GetMapping
     public List<DomainData> getData() {
         List<DomainData> allDomains = dataService.getAllDomains();
+        System.out.println(allDomains);
         return allDomains;
     }
 
