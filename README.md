@@ -29,11 +29,19 @@ First, we start PDL Strategy. If it finds all the required data - perfect. Else,
 
 Check out our app: tyt mae bytu link
 
+
+
 ![markiyan](https://user-images.githubusercontent.com/65810146/205348629-a9f45f00-4e9d-416f-97fc-3bd3b0a2af74.jpg)
 
 # UML Diagrams
 
 UML Diagrams: https://app.diagrams.net/#G1q9-UnPABdGsBpMu9PRTY6udUUAMGE--d
 
+![class](https://user-images.githubusercontent.com/65810146/205384487-c5e6b00c-86f0-4079-bed4-c40803d66154.png)
+
+
 Use Case Diagram: https://app.diagrams.net/#G1ApqJRUWjQDJopeWKvk3O9zaXt0aXfDuY
+
+![user case](https://user-images.githubusercontent.com/65810146/205384369-2048d40f-078a-46c3-aeba-17f4e29a251e.png)
+
 
