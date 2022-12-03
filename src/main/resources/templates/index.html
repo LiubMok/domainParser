@@ -12,7 +12,8 @@
             padding: 0;
             width: 100%;
             height: 100vh;
-            background: url("../assets/intro.png") center no-repeat;
+            background: url("https://iili.io/HqYZuzN.md.png") center no-repeat;
+            /*background: url("../assets/intro.png") center no-repeat;*/
             background-size: cover;
             text-align: center;
 
@@ -41,22 +42,30 @@
         button {
             color: white;
         }
-        
+
     </style>
 </head>
 <body>
-    <div class="empty"></div>
-    <div>
-        <h2>Scraping data from a site</h2>
-        <h4>Paste your domain:</h4>
-        <form action="/scrape" method="get">
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">http:</span>
-                <input required type="text" class="form-control" placeholder="Ex: github.com">
-                <button class="btn btn-outline-light" type="button" id="button-addon2">Search</button>
-            </div>
-        </form>
-    </div>
+<div class="empty"></div>
+<div>
+    <h2>Scraping data from a site</h2>
+    <h4>Paste your domain:</h4>
+    <form action="/api/find" method="get">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">http:</span>
+            <input required type="text" name="domainString" class="form-control" placeholder="Ex: github.com">
+            <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+            <input type="submit" style="display:none"/>
+
+
+            <!--      <input required-->
+            <!--             title="Please, enter a domain" name="domain" class="input"-->
+            <!--             placeholder="Enter company domain"/>-->
+            <!--      <button type="submit"><i class="fas fa-arrow-right"></i></button>-->
+            <!--      <input type="submit" style="display:none"/>-->
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
