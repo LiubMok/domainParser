@@ -27,8 +27,7 @@ First, we start PDL Strategy. If it finds all the required data - perfect. Else,
 
 # Demo
 
-Check out our app: 
-https://shrouded-escarpment-68205.herokuapp.com/
+Check out our app: https://shrouded-escarpment-68205.herokuapp.com/
 
 
 
